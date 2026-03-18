@@ -1,4 +1,4 @@
-themesflat.co/html/finwice<?php
+<?php
 
 // define("WEBMASTER_EMAIL", 'themesflatcdev3@gmail.com');
 //$address = "example@themeforest.net";
