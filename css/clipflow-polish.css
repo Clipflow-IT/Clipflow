@@ -1,0 +1,716 @@
+/* =========================================================
+   Clipflow polish overrides
+   Loaded after the template's styles.css so these win
+   ========================================================= */
+
+:root {
+    --cf-primary: #43BAFF;
+    --cf-ink: #0F1A1E;
+    --cf-ink-2: #142125;
+    --cf-line: rgba(255,255,255,0.08);
+    --cf-line-strong: rgba(255,255,255,0.16);
+    --cf-muted: rgba(255,255,255,0.65);
+    --cf-text: rgba(255,255,255,0.86);
+}
+
+/* ---------- Typography polish ----------
+   Tighten the headlines, give the eyebrow text a real role */
+.title,
+h1.title,
+h2.title,
+h3.title {
+    letter-spacing: -0.02em;
+}
+.sub-title.body-2 {
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-size: 13px;
+    color: var(--cf-primary);
+}
+
+/* Highlight chip — refine to feel like a tag, not a paint-mark */
+.highlight {
+    background-color: transparent !important;
+    color: var(--cf-primary) !important;
+    padding: 0 !important;
+    letter-spacing: 0.04em;
+}
+
+/* ---------- Preloader: full logo + slim progress bar ---------- */
+.cf-preload-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+}
+.cf-preload-logo img {
+    width: 220px;
+    height: auto;
+    opacity: 0.95;
+}
+.cf-preload-logo .loader-bar {
+    width: 180px;
+    height: 2px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 2px;
+    overflow: hidden;
+}
+.cf-preload-logo .loader-bar span {
+    display: block;
+    height: 100%;
+    width: 40%;
+    background: var(--cf-primary);
+    border-radius: 2px;
+    animation: cf-loader 1.1s ease-in-out infinite;
+}
+@keyframes cf-loader {
+    0%   { transform: translateX(-100%); width: 30%; }
+    50%  { transform: translateX(60%);   width: 50%; }
+    100% { transform: translateX(260%);  width: 30%; }
+}
+
+/* ---------- Hero ---------- */
+.cf-hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+    border: 1px solid var(--cf-line);
+}
+.cf-hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+}
+.tf-btn.cf-btn-ghost {
+    background: transparent;
+    border: 1px solid var(--cf-line-strong);
+    color: #fff;
+}
+.tf-btn.cf-btn-ghost:hover {
+    background: rgba(67, 186, 255, 0.08);
+    border-color: var(--cf-primary);
+}
+.tf-btn.cf-btn-ghost span,
+.tf-btn.cf-btn-ghost i {
+    color: #fff;
+}
+
+/* ---------- About: Mission / Vision pillars ---------- */
+.cf-about-pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-top: 8px;
+}
+.cf-pillar {
+    border: 1px solid var(--cf-line);
+    border-radius: 14px;
+    padding: 22px 24px;
+    background: rgba(255,255,255,0.015);
+    transition: border-color .25s ease, transform .25s ease;
+}
+.cf-pillar:hover {
+    border-color: var(--cf-primary);
+    transform: translateY(-2px);
+}
+.cf-pillar-tag {
+    display: inline-block;
+    font-family: ui-monospace, "JetBrains Mono", Menlo, monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cf-primary);
+    margin-bottom: 10px;
+}
+.cf-pillar p {
+    margin: 0;
+    color: var(--cf-text);
+    line-height: 1.55;
+    font-size: 16px;
+}
+@media (max-width: 700px) {
+    .cf-about-pillars { grid-template-columns: 1fr; }
+}
+
+/* ---------- Local + global rails section ---------- */
+.section-localglobal {
+    position: relative;
+}
+.cf-rails {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+.cf-rail-card {
+    padding: 28px 26px 30px;
+    border: 1px solid var(--cf-line);
+    border-radius: 16px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0));
+    transition: border-color .25s ease, transform .25s ease, background .25s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 220px;
+}
+.cf-rail-card:hover {
+    border-color: var(--cf-primary);
+    transform: translateY(-3px);
+}
+.cf-rail-eyebrow {
+    font-family: ui-monospace, "JetBrains Mono", Menlo, monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--cf-primary);
+}
+.cf-rail-card h5 {
+    font-size: 18px;
+    line-height: 1.3;
+    color: #fff;
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+.cf-rail-card p {
+    margin: 0;
+    color: var(--cf-muted);
+    font-size: 14.5px;
+    line-height: 1.6;
+}
+@media (max-width: 1100px) {
+    .cf-rails { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+    .cf-rails { grid-template-columns: 1fr; }
+}
+
+/* ---------- Testimonials: honest placeholder cards ---------- */
+.cf-testimonial-placeholder {
+    position: relative;
+}
+.cf-placeholder-tag {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-family: ui-monospace, "JetBrains Mono", Menlo, monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: var(--cf-primary);
+    border: 1px dashed rgba(67,186,255,0.45);
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(67,186,255,0.05);
+}
+.cf-testimonial-placeholder .text {
+    color: rgba(255,255,255,0.55) !important;
+    font-style: italic;
+}
+.cf-testimonial-placeholder .name-user,
+.cf-testimonial-placeholder .position {
+    color: rgba(255,255,255,0.4);
+}
+
+/* ---------- Footer brand block ---------- */
+.cf-footer-brand {
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.cf-footer-logo img {
+    height: auto;
+    width: 190px;
+}
+.cf-footer-brand .title {
+    color: #fff;
+    margin: 0;
+    letter-spacing: -0.01em;
+}
+.cf-footer-brand .desc {
+    color: var(--cf-muted);
+    margin: 0;
+}
+.cf-footer-social {
+    display: flex;
+    gap: 12px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* ---------- Floating WhatsApp ---------- */
+.cf-wa-fab {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    z-index: 90;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 18px 12px 14px;
+    border-radius: 999px;
+    background: #25D366;
+    color: #fff !important;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.35), 0 2px 6px rgba(0,0,0,0.25);
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.cf-wa-fab:hover {
+    transform: translateY(-2px);
+    background: #1ebe5b;
+    color: #fff;
+    box-shadow: 0 14px 36px rgba(37, 211, 102, 0.45), 0 2px 6px rgba(0,0,0,0.3);
+}
+.cf-wa-fab svg { display: block; flex-shrink: 0; }
+.cf-wa-label { white-space: nowrap; }
+
+/* ---------- About page strategy list ---------- */
+.section-company .according-content .right .desc ol {
+    list-style: decimal;
+    margin: 0;
+    padding-left: 1.8em;
+}
+.section-company .according-content .right .desc ol li {
+    list-style: decimal;
+    display: list-item;
+    margin-bottom: 8px;
+    line-height: 1.7;
+}
+
+@media (max-width: 700px) {
+    .cf-wa-fab {
+        bottom: 16px;
+        left: 16px;
+        padding: 12px;
+    }
+    .cf-wa-label { display: none; }
+}
+
+/* ---------- Misc polish ---------- */
+/* The marquee strips were repeating too aggressively visually — tone tint */
+.big-text { letter-spacing: -0.02em; }
+
+/* Service card image refinement so the SVG placeholders sit cleanly */
+.services-item .image img {
+    border-radius: 12px;
+    border: 1px solid var(--cf-line);
+}
+
+/* List of image tiles next to testimonials — better border for SVGs */
+.list-image .img-section img {
+    border-radius: 16px;
+}
+
+/* Hero counter: align label so it doesn't crowd the number */
+.wg-counter .title-counter { margin-left: 14px; }
+
+/* Footer line cleanup */
+.footer-bottom .list-bottom ul li a:hover { color: var(--cf-primary); }
+
+/* Engagement section CTA */
+.cf-engagement-cta {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    padding: 28px 32px;
+    border: 1px solid var(--cf-line);
+    border-radius: 16px;
+    background: linear-gradient(180deg, rgba(67,186,255,0.04), rgba(255,255,255,0));
+}
+.cf-engagement-cta p {
+    margin: 0;
+    color: var(--cf-text);
+    font-size: 17px;
+    max-width: 560px;
+}
+
+/* Style-2 testimonial placeholder polish */
+.cf-testimonial-style-2.cf-testimonial-placeholder .cf-placeholder-tag {
+    position: static;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+.cf-testimonial-style-2.cf-testimonial-placeholder .text {
+    color: rgba(255,255,255,0.5) !important;
+    font-style: italic;
+}
+
+/* Team placeholder cards: keep image proportions */
+.team-item .image img {
+    border-radius: 14px;
+}
+
+/* =========================================================
+   Mobile + responsive polish
+   These rules tighten the existing template's responsive
+   behaviour so every breakpoint from 320px → 1200px looks
+   intentional rather than "shrunken desktop".
+   ========================================================= */
+
+/* Stop horizontal scroll caused by decorative SVG circle masks */
+html, body { overflow-x: hidden; }
+.wrapper { overflow-x: hidden; }
+
+/* ---------- Tablet & below (≤ 1200px) ---------- */
+@media (max-width: 1200px) {
+    /* Header — give the burger button room */
+    .header .header-content {
+        padding-left: 15px;
+    }
+    .header .header-right {
+        gap: 16px;
+    }
+    /* Mobile button is the only thing left in header-right */
+    .header .mobile-button {
+        display: inline-block;
+    }
+    /* Logo: cap height instead of width so SVG/PNG with extra whitespace doesn't dwarf the burger */
+    .header .logo-header img {
+        max-width: 140px;
+        height: auto;
+    }
+    /* Hero: stop the desktop "image bleeds right" trick from forcing overflow */
+    .page-title-home .image,
+    .cf-hero-image {
+        margin-right: 0 !important;
+    }
+    .cf-hero-image img {
+        width: 100%;
+        height: auto;
+    }
+    /* Section spacing tightening so we don't lose the user in whitespace */
+    .page-title-home {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .page-title-home .top-page-title {
+        margin-bottom: 40px !important;
+        padding-top: 0 !important;
+    }
+    .page-title-home .content-left {
+        padding-top: 0 !important;
+    }
+    /* Engagement / quote band */
+    .cf-engagement-cta {
+        padding: 24px;
+    }
+}
+
+/* ---------- Small tablet (≤ 991px) ---------- */
+@media (max-width: 991px) {
+    /* Top bar — drop the trailing socials to a single neat line.
+       The left address strip is already hidden by the template. */
+    .top-bar {
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+    .top-bar .top-bar-inner {
+        justify-content: center;
+    }
+    .top-bar .tf-tb-right {
+        justify-content: center;
+    }
+
+    /* Hero column gap */
+    .page-title-home .row.rg-70 {
+        --bs-gutter-y: 32px;
+        row-gap: 32px;
+    }
+
+    /* CTA pair — give them breathing room when wrapped */
+    .cf-hero-ctas {
+        gap: 12px;
+    }
+    .cf-hero-ctas .tf-btn {
+        flex: 1 1 auto;
+        justify-content: center;
+        text-align: center;
+    }
+
+    /* Big marquee text — 100px is still loud on a phone */
+    .big-text {
+        font-size: 64px !important;
+        line-height: 1.05;
+    }
+    .section-services .tf-marquee,
+    .section-about .tf-marquee,
+    .footer .tf-marquee {
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    /* About inner: stack the curve-text and content cleanly */
+    .section-about .about-inner {
+        flex-direction: column;
+        gap: 24px;
+    }
+    .section-about .about-inner .right {
+        width: 100%;
+    }
+
+    /* Counter number reads bigger than label by enough already */
+    .wg-counter .title-counter {
+        margin-left: 12px;
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    /* Footer brand width should fill */
+    .cf-footer-brand {
+        max-width: 100%;
+    }
+
+    /* Footer middle gap on tablet */
+    .footer .footer-middle {
+        gap: 40px 30px;
+    }
+}
+
+/* ---------- Phone (≤ 767px) ---------- */
+@media (max-width: 767px) {
+    /* Hero — title needs to step down further; template's h1 = 40px
+       can still feel cramped given long copy */
+    h1, .title.fw-6 {
+        font-size: 34px !important;
+        line-height: 1.15 !important;
+        letter-spacing: -0.01em !important;
+    }
+    h2, .heading-section .title {
+        font-size: 28px !important;
+        line-height: 1.2 !important;
+    }
+    .page-title-home .title.lh-85 {
+        line-height: 1.1 !important;
+    }
+    .fs-32 { font-size: 24px !important; }
+    .fs-27 { font-size: 20px !important; }
+    .fs-20 { font-size: 17px !important; }
+    .fs-65 { font-size: 36px !important; }
+
+    /* Hero stacking */
+    .page-title-home .content-left > * + * {
+        margin-top: 20px;
+    }
+    .cf-hero-ctas {
+        width: 100%;
+    }
+    .cf-hero-ctas .tf-btn {
+        width: 100%;
+    }
+
+    /* Service swiper cards: roomier padding on phone */
+    .services-item.style-1 {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    /* Local + global rail cards: comfortable mobile padding */
+    .cf-rail-card {
+        padding: 22px 20px 24px;
+        min-height: 0;
+    }
+    .cf-rail-card h5 { font-size: 17px; }
+
+    /* Mission / Vision pillars */
+    .cf-pillar {
+        padding: 18px 18px;
+    }
+
+    /* Testimonial: keep the placeholder tag from overlapping the quote */
+    .cf-testimonial-placeholder .cf-placeholder-tag {
+        position: static;
+        display: inline-block;
+        margin-bottom: 14px;
+    }
+    .cf-testimonial-placeholder .icon {
+        margin-bottom: 8px;
+    }
+    /* Testimonial image collage — the 4-tile grid feels tight on phones,
+       reduce the gap so each tile reads */
+    .section-testimonial .list-image {
+        gap: 14px;
+    }
+    .section-testimonial .img-section {
+        max-width: calc(50% - 7px);
+    }
+
+    /* Engagement CTA → stack on phone */
+    .cf-engagement-cta {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 22px 20px;
+    }
+    .cf-engagement-cta .tf-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Footer columns full-width earlier than template's 550px */
+    .footer .footer-middle .locations-contact,
+    .footer .footer-middle .footer-content {
+        max-width: 100%;
+    }
+    .footer .footer-middle {
+        gap: 32px 0;
+    }
+    .footer-bottom .list-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+    .footer-bottom .list-bottom ul {
+        gap: 18px;
+        justify-content: center;
+    }
+
+    /* WhatsApp FAB: shrink further so it never overlaps the page top-of-fold CTAs */
+    .cf-wa-fab {
+        bottom: 14px;
+        left: 14px;
+        padding: 10px;
+    }
+    .cf-wa-fab svg { width: 22px; height: 22px; }
+
+    /* Preloader logo size scaled down */
+    .cf-preload-logo img { width: 160px; }
+    .cf-preload-logo .loader-bar { width: 140px; }
+
+    /* Decorative circle masks: don't let them push horizontal scroll */
+    .mask { pointer-events: none; }
+    .mask svg {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* ---------- Small phone (≤ 480px) ---------- */
+@media (max-width: 480px) {
+    h1, .title.fw-6 {
+        font-size: 30px !important;
+    }
+    h2, .heading-section .title {
+        font-size: 24px !important;
+    }
+    .big-text {
+        font-size: 48px !important;
+    }
+
+    /* tf-container shrink padding so content gets every available pixel */
+    .tf-container {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    /* Top-bar socials only — keep them tight */
+    .top-bar .post-social {
+        gap: 10px;
+    }
+    .top-bar .post-social .icon-social {
+        font-size: 13px;
+    }
+
+    /* Header: tighter so logo + burger fit */
+    .header .header-content {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header .logo-header img { max-width: 120px; }
+
+    /* Counter on hero shouldn't dwarf the rest */
+    .wg-counter .fs-65 { font-size: 32px !important; }
+
+    /* Hero image gets a touch less radius so it doesn't look bubble-like */
+    .cf-hero-image img { border-radius: 12px; }
+
+    /* Service / rail / pillar cards radius shrink */
+    .cf-rail-card,
+    .cf-pillar {
+        border-radius: 12px;
+    }
+}
+
+/* ---------- Tiny phone (≤ 360px) safety ---------- */
+@media (max-width: 360px) {
+    h1, .title.fw-6 { font-size: 26px !important; }
+    .big-text { font-size: 40px !important; }
+    .tf-container {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+}
+
+/* Mobile offcanvas nav: ensure it actually fits viewport on small screens */
+@media (max-width: 575px) {
+    .mobile-nav-wrap {
+        max-width: 86vw;
+    }
+}
+
+/* Make sure long, unbroken words/links never push the layout sideways */
+.address, .contact-footer a, .top-bar a {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+}
+
+/* ---------- Contact: Google Maps embed ---------- */
+.cf-map-embed {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    border: 1px solid var(--cf-line);
+}
+.cf-map-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+    /* Subtle filter so it matches the dark UI without losing detail */
+    filter: saturate(0.92) contrast(0.96);
+}
+
+/* ---------- Contact forms: send status ---------- */
+.flat-alert {
+    position: relative;
+    padding: 14px 44px 14px 16px;
+    border-radius: 8px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--cf-text);
+    border: 1px solid var(--cf-line-strong);
+}
+.flat-alert.msg-success {
+    background: rgba(67, 186, 255, 0.12);
+    border-color: rgba(67, 186, 255, 0.5);
+}
+.flat-alert.msg-error {
+    background: rgba(255, 99, 99, 0.12);
+    border-color: rgba(255, 99, 99, 0.5);
+}
+.flat-alert .close {
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    transform: translateY(-50%);
+    font-size: 22px;
+    line-height: 1;
+    color: inherit;
+}
+.form-contact-us button[type="submit"].is-sending {
+    opacity: 0.6;
+    pointer-events: none;
+}
+.form-contact-us .cf-hp {
+    position: absolute !important;
+    left: -9999px !important;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}

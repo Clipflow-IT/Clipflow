@@ -1,56 +1,65 @@
 <?php
+// Handles every contact / consultation form on the site.
+// Responds with the plain text "Success" on success (js/main.js checks for it), anything else is treated as an error.
 
-// define("WEBMASTER_EMAIL", 'themesflatcdev3@gmail.com');
-//$address = "example@themeforest.net";
-$address = "themesflatcdev3@gmail.com";
-if (!defined("PHP_EOL")) define("PHP_EOL", "\r\n");
+$address = "sales@clipflow.co.zw";
+// Must be a mailbox on the site's own domain, otherwise many hosts / spam filters reject the message.
+$from = "website@clipflow.co.zw";
 
-$error = false;
-$fields = array('name','mail','phone','message' );
+header('Content-Type: text/plain; charset=utf-8');
 
-foreach ( $fields as $field ) {
-	if ( empty($_POST[$field]) || trim($_POST[$field]) == '' )
-		$error = true;
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+	http_response_code(405);
+	exit('Method not allowed');
 }
 
-if ( !$error ) {
-
-	$name = stripslashes($_POST['name']);
-	$mail = stripslashes($_POST['mail']);	
-	$mail = stripslashes($_POST['phone']);	
-	$message = stripslashes($_POST['message']);
-
-	$e_subject = 'You\'ve been contacted by ' . $email . '.';
-	
-
-	// Configuration option.
-	// You can change this if you feel that you need to.
-	// Developers, you may wish to add more fields to the form, in which case you must be sure to add them here.
-
-	$e_body = "You have been contacted by: $email" . PHP_EOL . PHP_EOL;
-	$e_phone = "\r\nPhone: $phone" . PHP_EOL . PHP_EOL;
-
-	$msg = wordwrap( $e_body  , 70 );
-
-	$headers = "Name: $name" . PHP_EOL;
-	$headers .= "Mail: $mail" . PHP_EOL;
-	$headers .= "Phone: $phone" . PHP_EOL;
-	$headers .= "Message: $message" . PHP_EOL;
-	// $headers .= "Content-type: text/plain; charset=utf-8" . PHP_EOL;
-	// $headers .= "Content-Transfer-Encoding: quoted-printable" . PHP_EOL;
-
-	if(mail($address, $msg, $headers  )) {
-
-		// Email has sent successfully, echo a success page.
-	
-		echo 'Success';
-
-	} else {
-
-		echo 'ERROR!';
-
-	}
-
+// Honeypot: real visitors never fill this hidden field in.
+if (!empty($_POST['hp_check'])) {
+	exit('Success');
 }
 
-?>
+function field($key, $max = 200) {
+	$value = isset($_POST[$key]) ? trim((string) $_POST[$key]) : '';
+	return function_exists('mb_substr') ? mb_substr($value, 0, $max) : substr($value, 0, $max);
+}
+
+// Strip CR/LF so values can never inject extra mail headers.
+function single_line($value) {
+	return trim(preg_replace('/[\r\n]+/', ' ', $value));
+}
+
+$name    = single_line(field('name'));
+$mail    = single_line(field('mail'));
+$phone   = single_line(field('phone', 50));
+$subject = single_line(field('subject', 100));
+$message = field('message', 5000);
+$page    = single_line(field('page', 200));
+
+if ($name === '' || $message === '' || !filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+	http_response_code(422);
+	exit('Please provide your name, a valid email address and a message.');
+}
+
+$e_subject = 'Website enquiry' . ($subject !== '' ? ': ' . $subject : '') . ' from ' . $name;
+
+$body  = "You have received a new enquiry from the Clipflow website." . "\r\n\r\n";
+$body .= "Name: $name\r\n";
+$body .= "Email: $mail\r\n";
+if ($phone !== '')   $body .= "Phone: $phone\r\n";
+if ($subject !== '') $body .= "Subject: $subject\r\n";
+if ($page !== '')    $body .= "Sent from: $page\r\n";
+$body .= "\r\nMessage:\r\n" . wordwrap($message, 70, "\r\n") . "\r\n";
+
+$headers  = "From: Clipflow Website <$from>\r\n";
+$headers .= "Reply-To: $name <$mail>\r\n";
+$headers .= "MIME-Version: 1.0\r\n";
+$headers .= "Content-Type: text/plain; charset=utf-8\r\n";
+
+$encoded_subject = '=?UTF-8?B?' . base64_encode($e_subject) . '?=';
+
+if (mail($address, $encoded_subject, $body, $headers)) {
+	echo 'Success';
+} else {
+	http_response_code(500);
+	echo 'ERROR';
+}

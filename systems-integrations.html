@@ -7,8 +7,8 @@
 <head>
     <!-- Basic Page Needs -->
     <meta charset="utf-8" />
-    <title>Contact — Clipflow</title>
-    <meta name="description" content="Get in touch with Clipflow. Harare, Zimbabwe. sales@clipflow.co.zw · +263 773 799 201">
+    <title>Systems Integration &amp; APIs — Clipflow</title>
+    <meta name="description" content="Systems integration and API development from Clipflow: payment gateways, third-party APIs, legacy system bridges and enterprise middleware.">
     <meta name="author" content="Clipflow (Pvt) Ltd" />
     <meta name="theme-color" content="#0F1A1E">
     <!-- Mobile Specific Metas -->
@@ -16,8 +16,8 @@
 
     <!-- Open Graph / social -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Contact — Clipflow">
-    <meta property="og:description" content="Get in touch with Clipflow. Harare, Zimbabwe. sales@clipflow.co.zw · +263 773 799 201">
+    <meta property="og:title" content="Systems Integration &amp; APIs — Clipflow">
+    <meta property="og:description" content="Systems integration and API development from Clipflow: payment gateways, third-party APIs, legacy system bridges and enterprise middleware.">
     <meta property="og:url" content="https://clipflow.co.zw/">
     <meta property="og:image" content="https://clipflow.co.zw/image/logo/logo.png">
     <meta property="og:site_name" content="Clipflow">
@@ -30,10 +30,12 @@
     <link rel="stylesheet" type="text/css" href="css/animate.min.css" />
     <!-- Magnific-popup -->
     <link rel="stylesheet" type="text/css" href="css/magnific-popup.min.css" />
+    <!-- Odometer -->
+    <link rel="stylesheet" href="css/odometer-theme-default.css">
     <!-- Nice select -->
     <link rel="stylesheet" href="css/nice-select.css">
-    <!-- Map -->
-    <link rel="stylesheet" href="css/map.min.css">
+    <!-- Swiper -->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
 
     <!-- Theme Style -->
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
@@ -97,9 +99,9 @@
         </div>
         <div class="mask mask-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" fill="none">
-                <circle cx="400" cy="400" r="325" stroke="url(#e7)" stroke-width="150" />
+                <circle cx="400" cy="400" r="325" stroke="url(#a7)" stroke-width="150" />
                 <defs>
-                    <linearGradient id="e7" x1="176" x2="569" y1="70.5" y2="674"  >
+                    <linearGradient id="a7" x1="176" x2="569" y1="70.5" y2="674"  >
                         <stop offset="0" stop-color="#fff" stop-opacity="0.05" />
                         <stop offset="1" stop-color="#fff" stop-opacity="0" />
                     </linearGradient>
@@ -182,7 +184,7 @@
                                     </span>
                                 </a>
                             </li>
-                            <li class="menu-item">
+                            <li class="menu-item current-menu-item">
                                 <a href="services.html" class="item-link body-2">
                                     <span>
                                         Services
@@ -197,7 +199,7 @@
                                     </span>
                                 </a>
                             </li>
-                            <li class="menu-item current-menu-item">
+                            <li class="menu-item">
                                 <a href="contact.html" class="item-link body-2">
                                     <span>
                                         Contact Us
@@ -232,12 +234,12 @@
             <div class="tf-container">
                 <div class="page-title-content text-center">
                     <h1 class="title split-text effect-right">
-                        Contact Us
+                        Systems Integration &amp; APIs
                     </h1>
                     <div class="breadkcum">
                         <a href="index.html" class="link-breadkcum body-2 fw-7 split-text effect-right">Home</a>
                         <span class="dot"></span>
-                        <span class="page-breadkcum body-2 fw-7 split-text effect-right"> Contact Us</span>
+                        <span class="page-breadkcum body-2 fw-7 split-text effect-right">Service Details</span>
                     </div>
                 </div>
             </div>
@@ -247,145 +249,346 @@
 
         <!-- Main-content -->
 
-        <div class="main-content">
-
-            <section class="section-contact p-contact tf-spacing-2">
-                <div class="tf-container">
-                    <div class="section-contact-inner flex justify-content-between flex-wrap">
-
-                        <div class="left">
-                            <div class="heading-section mb-30">
-                                <div class="sub-title body-2 fw-7 mb-17 title-animation">
-                                    Get in touch
-                                </div>
-                                <h2 class="title fw-6 mb-10 title-animation">
-                                    Ready to elevate
-                                    <span class="fw-3">Your Business?</span>
-                                </h2>
-                                <div class="desc text-animation">
+        <div class="main-content position-relative">
+            <div class="mask mask-service-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" fill="none">
+                    <circle cx="400" cy="400" r="325" stroke="url(#b6)" stroke-width="150"></circle>
+                    <defs>
+                        <linearGradient id="b6" x1="176" x2="569" y1="70.5" y2="674"  >
+                            <stop offset="0" stop-color="#fff" stop-opacity="0.05"></stop>
+                            <stop offset="1" stop-color="#fff" stop-opacity="0"></stop>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <div class="tf-container tf-spacing-8">
+                <div class="row">
+                    <div class="col-xl-8">
+                        <button id="filterShop" class="fillter-btn style-fixed d-xl-none">
+                            <i class="icon-sidebar"></i>
+                        </button>
+                        <div class="wg-details wg-service-details">
+                            <div class="image-blog img-1">
+                                <img src="image/4.jpg" alt="Systems Integration &amp; API Development">
+                            </div>
+                            <div class="details-content">
+                                <h3 class="title">Seamless Connectivity Across Your Systems</h3>
+                                <div class="desc">
                                     <p class="lh-30">
-                                        Whether you're starting from scratch or scaling an existing system, 
-                                        our team is ready to deliver smart, tailored technology solutions 
-                                        that move your business forward.
+                                        Most organisations run on a mix of applications that were never designed to work together. We design and implement robust integration solutions that connect disparate systems, so data flows securely and reliably across your entire technology ecosystem &mdash; eliminating double capture, manual reconciliation and information silos.
+                                    </p>
+                                    <p class="lh-30">
+                                        Our expertise spans payment gateways, third-party APIs, legacy system bridges, fintech rails, compliance systems and enterprise middleware. We build integrations that are secure, well documented and monitored, so you can trust the data moving between your platforms.
                                     </p>
                                 </div>
                             </div>
-                            <div class="contact-list mb-30">
-                                <div class="title body-2 fw-7 title-animation">Main Office</div>
-                                <div class="contact-item location-item align-items-start title-animation">
-                                    <i class="icon-location-dot"></i>
-                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Clipflow%2C+18+Harrow+Road%2C+Msasa%2C+Harare" target="_blank" rel="noopener" class="lh-30">Unit 5, 18 Harrow Road, Msasa
-                                        <br>Harare, Zimbabwe</a>
-                                </div>
-                                <div class="contact-item title-animation">
-                                    <i class="icon-email"></i>
-                                    <a href="mailto:sales@clipflow.co.zw" class="lh-30">sales@clipflow.co.zw</a>
-                                </div>
-                                <div class="contact-item title-animation">
-                                    <i class="icon-phone"></i>
-                                    <a href="tel:+263773799201" class="lh-30">+263 (773) 799 201</a>
+
+                            <div class="details-content-2">
+                                <h4 class="title">Our Key Services Include:</h4>
+                                <p class="desc lh-30">
+                                    We connect the systems your business depends on, from modern cloud platforms to long-standing legacy applications.
+                                </p>
+                                <div class="list-features">
+                                    <div class="features-item">
+                                        <div class="number-features fw-7">
+                                            1
+                                        </div>
+                                        <div class="item-content">
+                                            <span class="body-2 fw-7">Payment Gateway &amp; Fintech Integration</span>
+                                            <p class="text lh-30">Secure integration with payment gateways, mobile money and banking rails, including reconciliation and transaction reporting.</p>
+                                        </div>
+                                    </div>
+                                    <div class="features-item">
+                                        <div class="number-features fw-7">
+                                            2
+                                        </div>
+                                        <div class="item-content">
+                                            <span class="body-2 fw-7">Custom API Development</span>
+                                            <p class="text lh-30">Well-designed, documented and secure REST APIs that expose your data and services to partners, apps and internal systems.</p>
+                                        </div>
+                                    </div>
+                                    <div class="features-item">
+                                        <div class="number-features fw-7">
+                                            3
+                                        </div>
+                                        <div class="item-content">
+                                            <span class="body-2 fw-7">Legacy System Bridges</span>
+                                            <p class="text lh-30">Connect older applications to modern platforms without costly rip-and-replace projects, extending the life of existing investments.</p>
+                                        </div>
+                                    </div>
+                                    <div class="features-item">
+                                        <div class="number-features fw-7">
+                                            4
+                                        </div>
+                                        <div class="item-content">
+                                            <span class="body-2 fw-7">Enterprise Middleware &amp; Compliance</span>
+                                            <p class="text lh-30">Message queues, integration layers and audit trails that keep data consistent and support regulatory and compliance requirements.</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="contact-social">
-                                <div class="title body-2 fw-7 title-animation">Follow Us</div>
-                                <ul class="post-social style-radius-50 style-bg-white g-10 title-animation">
-                                    <li><a href="https://www.facebook.com/clipflowzim/" class="icon-social"><i class="icon-fb"></i></a></li>
-                                    <li><a href="https://x.com/ClipflowZim" class="icon-social"><i class="icon-X"></i></a></li>
-                                    <li><a href="https://www.linkedin.com/company/clipflowzim/" class="icon-social"><i class="icon-linkedin"></i></a></li>
-                                    <li><a href="https://instagram.com/clipflowzw" class="icon-social"><i class="icon-instagram"></i></a></li>
+
+                            <div class="image-blog img-2">
+                                <img src="image/placeholder/service-detail-2.svg" alt="Service detail — replace">
+                                <div class="counter-box">
+                                    <div class="counter-item">
+                                        <div class="counter">
+                                            <div class="number-counter flex fs-65 fw-6">
+                                                <span class="number odometer color-primary" data-to="5" data-inviewport="yes"> 0 </span>
+                                                <span class="color-primary">+</span>
+                                            </div>
+                                            <h5 class="title-counter fw-5">
+                                                Years building<br>for Zim business
+                                            </h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="details-content-2 mb-56">
+                                <h4 class="title">Our Working Process</h4>
+                                <p class="desc lh-30 mb-40">
+                                    A structured approach that minimises risk and disruption to the systems your business relies on every day.
+                                </p>
+                                <div class="list-process flex">
+                                    <div class="process-item">
+                                        <div class="top-item">
+                                            <div class="step-number text-medium">
+                                                Step 01
+                                            </div>
+                                            <span class="body-2 fw-7">Assess &amp; Map</span>
+                                        </div>
+                                        <div class="midder-item">
+                                            <div class="icon">
+                                                <i class="icon-check"></i>
+                                            </div>
+                                            <div class="line"></div>
+                                        </div>
+                                        <div class="text lh-30">
+                                            We audit your systems, data flows and APIs to define integration requirements.
+                                        </div>
+                                    </div>
+
+                                    <div class="process-item">
+                                        <div class="top-item">
+                                            <div class="step-number text-medium">
+                                                Step 02
+                                            </div>
+                                            <span class="body-2 fw-7">Design &amp; Build</span>
+                                        </div>
+                                        <div class="midder-item">
+                                            <div class="icon">
+                                                <i class="icon-check"></i>
+                                            </div>
+                                            <div class="line"></div>
+                                        </div>
+                                        <div class="text lh-30">
+                                            We design secure interfaces and build integrations with thorough testing.
+                                        </div>
+                                    </div>
+
+                                    <div class="process-item">
+                                        <div class="top-item">
+                                            <div class="step-number text-medium">
+                                                Step 03
+                                            </div>
+                                            <span class="body-2 fw-7">Deploy &amp; Monitor</span>
+                                        </div>
+                                        <div class="midder-item">
+                                            <div class="icon">
+                                                <i class="icon-check"></i>
+                                            </div>
+                                            <div class="line"></div>
+                                        </div>
+                                        <div class="text lh-30">
+                                            We roll out carefully and monitor integrations to keep data flowing reliably.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="details-content-2 mb-0">
+                                <h4 class="title">Frequently Asked Questions</h4>
+                                <p class="desc lh-30 mb-20">
+                                    Common questions about connecting systems and building APIs with Clipflow.
+                                </p>
+                                <div class="wg-according" id="According1">
+                                    <div class="according-item style-2 px-sm-15">
+                                        <a href="#according1" data-bs-toggle="collapse" class="title-according body-2 fw-5">Can you integrate with our older, legacy systems?<i class="icon-arrow-right"></i></a>
+                                        <div id="according1" class="collapse show" data-bs-parent="#According1">
+                                            <div class="according-content">
+                                                <p class="lh-30">Yes. Where a legacy system has no modern API, we build bridges using database connectors, file-based exchanges or middleware so it can communicate securely with newer platforms.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="according-item style-2 px-sm-15">
+                                        <a href="#according2" data-bs-toggle="collapse" class="title-according collapsed body-2 fw-5">Which payment gateways can you integrate?<i class="icon-arrow-right"></i></a>
+                                        <div id="according2" class="collapse" data-bs-parent="#According1">
+                                            <div class="according-content">
+                                                <p class="lh-30">We integrate with a wide range of local and international payment gateways, card processors, mobile money platforms and banking APIs. Let us know which providers you use and we will confirm the approach.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="according-item style-2 px-sm-15">
+                                        <a href="#according3" data-bs-toggle="collapse" class="title-according collapsed body-2 fw-5">How do you keep integrations secure?<i class="icon-arrow-right"></i></a>
+                                        <div id="according3" class="collapse" data-bs-parent="#According1">
+                                            <div class="according-content">
+                                                <p class="lh-30">We use encrypted connections, strong authentication such as OAuth and API keys, least-privilege access, input validation and detailed logging, and we follow the compliance requirements relevant to your industry.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="according-item style-2 px-sm-15">
+                                        <a href="#according4" data-bs-toggle="collapse" class="title-according collapsed body-2 fw-5">What happens if an integration fails?<i class="icon-arrow-right"></i></a>
+                                        <div id="according4" class="collapse" data-bs-parent="#According1">
+                                            <div class="according-content">
+                                                <p class="lh-30">We build in retries, error handling, alerting and monitoring so issues are detected and resolved quickly, and we offer ongoing support to maintain integrations as connected systems change.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4">
+                        <div class="tf-sidebar sidebar-filter right no-bg">
+
+                            <div class="header-fillter flex justify-content-between align-items-center d-xl-none mb-30">
+                                <h3 class="title">
+                                    Fillter
+                                </h3>
+                                <span class="icon-close close-filter"></span>
+                            </div>
+
+                            <div class="sidebar-item sidebar-content sidebar-categories mb-40 bg-dark-2 px-sm-15">
+                                <h5 class="title-content fw-5">
+                                    Popular Services
+                                </h5>
+                                <ul class="list">
+                                    <li class="item">
+                                        <i class="icon-arrow-right"></i>
+                                        <a href="custom-software.html" class="body-2 fw-5">Custom Software Development</a>
+                                    </li>
+                                    <li class="item">
+                                        <i class="icon-arrow-right"></i>
+                                        <a href="web-design.html" class="body-2 fw-5">Web Design, Development &amp; Digital Marketing</a>
+                                    </li>
+                                    <li class="item">
+                                        <i class="icon-arrow-right"></i>
+                                        <a href="systems-integrations.html" class="body-2 fw-5">Systems Integration &amp; API Development</a>
+                                    </li>
+                                    <li class="item">
+                                        <i class="icon-arrow-right"></i>
+                                        <a href="it-consulting.html" class="body-2 fw-5">IT Strategy &amp; Consulting</a>
+                                    </li>
+                                    <li class="item">
+                                        <i class="icon-arrow-right"></i>
+                                        <a href="cloud-devops.html" class="body-2 fw-5">Cloud Infrastructure, DevOps &amp; Managed Services</a>
+                                    </li>
+                                    <li class="item">
+                                        <i class="icon-arrow-right"></i>
+                                        <a href="ai-automation.html" class="body-2 fw-5">AI &amp; Intelligent Automation Solutions</a>
+                                    </li>
                                 </ul>
                             </div>
-                        </div>
 
-                        <div class="right">
-                            <form id="contactform" class="form-contact-us style-bg-dark-2 px-md-15" method="post" action="./contact/contact-process.php">
-                                <input type="hidden" name="subject" value="">
-                                <div class="cf-hp" aria-hidden="true"><input type="text" name="hp_check" tabindex="-1" autocomplete="off"></div>
-                                <div class="cols mb-37 g-30">
-                                    <fieldset class="item">
-                                        <label for="name" class="sub-title body-2 fw-5">Full Name</label>
-                                        <fieldset class="position-relative">
-                                            <i class="icon-user"></i>
-                                            <input type="text" name="name" id="name" placeholder="Name" autocomplete="name" required>
-                                        </fieldset>
+                            <div class="sidebar-item sidebar-content sidebar-contact bg-dark-2 px-sm-15">
+                                <h3 class="title-content fw-5 lh-35">
+                                    Get Free
+                                    <br><span class="fw-5"> Consultation ?</span>
+                                </h3>
+                                <form id="contactform" class="form-contact-us sidebar-form" method="post" action="./contact/contact-process.php">
+                                    <input type="hidden" name="subject" value="">
+                                    <div class="cf-hp" aria-hidden="true"><input type="text" name="hp_check" tabindex="-1" autocomplete="off"></div>
+
+                                    <fieldset class="mb-20">
+                                        <input type="text" name="name" id="name" placeholder="Full Name" required>
                                     </fieldset>
 
-                                    <fieldset class="item">
-                                        <label for="mail" class="sub-title body-2 fw-5">Email Address</label>
-                                        <fieldset class="position-relative">
-                                            <i class="icon-email"></i>
-                                            <input type="email" name="mail" id="mail" placeholder="Email" autocomplete="email" required>
-                                        </fieldset>
+                                    <fieldset class="mb-20">
+                                        <input type="email" name="mail" id="mail" placeholder="Email" required>
                                     </fieldset>
+
+                                    <div class="nice-select mb-20">
+                                        <span class="current caption-1">Subject</span>
+                                        <ul class="list">
+                                            <li class="option option-all selected focus">
+                                                Subject
+                                            </li>
+                                            <li class="option">
+                                                Custom Software Development
+                                            </li>
+                                            <li class="option">
+                                                Web Design, Development &amp; Digital Marketing
+                                            </li>
+                                            <li class="option">
+                                                Systems Integration &amp; API Development
+                                            </li>
+                                            <li class="option">
+                                                IT Strategy &amp; Consulting
+                                            </li>
+                                            <li class="option">
+                                                Cloud Infrastructure, DevOps &amp; Managed Services
+                                            </li>
+                                            <li class="option">
+                                                AI &amp; Intelligent Automation Solutions
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <fieldset class="mb-20">
+                                        <textarea name="message" id="message" placeholder="Write message" required></textarea>
+                                    </fieldset>
+
+                                    <button type="submit" class="tf-btn w-full justify-content-center">
+                                        <span> Get Consultation</span>
+                                        <i class="icon-arrow-right"></i>
+                                    </button>
+
+                                </form>
+                            </div>
+
+                            <div class="sidebar-banner box-item">
+                                <div class="box-content px-sm-15">
+                                    <p class="sub-title">
+                                        Get A Quote
+                                    </p>
+                                    <h4 class="title">Need Your Systems To Talk To Each Other?</h4>
+                                    <a href="contact.html" class="tf-btn">
+                                        <span>Contact Us</span>
+                                        <i class="icon-arrow-right"></i>
+                                    </a>
                                 </div>
-                                <div class="cols mb-37 g-30">
-                                    <fieldset class="item">
-                                        <label for="phone" class="sub-title body-2 fw-5">Phone Number</label>
-                                        <fieldset class="position-relative">
-                                            <i class="icon-phone"></i>
-                                            <input type="tel" name="phone" id="phone" placeholder="+263 77 123 4567" autocomplete="tel" required>
-                                        </fieldset>
-                                    </fieldset>
+                            </div>
 
-                                    <fieldset class="item">
-                                        <div class="sub-title body-2 fw-5">
-                                            Subject
-                                        </div>
-                                        <div class="nice-select">
-                                            <span class="current caption-1">I would like to discuss</span>
-                                            <ul class="list">
-                                                <li class="option option-all selected focus">
-                                                    I would like to discuss
-                                                </li>
-                                                <li class="option">
-                                                    Custom Software Development
-                                                </li>
-                                                <li class="option">
-                                                    Web Design, Development &amp; Digital Marketing
-                                                </li>
-                                                <li class="option">
-                                                    Systems Integration &amp; API Development
-                                                </li>
-                                                <li class="option">
-                                                    IT Strategy &amp; Consulting
-                                                </li>
-                                                <li class="option">
-                                                    Cloud Infrastructure, DevOps &amp; Managed Services
-                                                </li>
-                                                <li class="option">
-                                                    AI &amp; Intelligent Automation Solutions
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </fieldset>
-                                </div>
-
-                                <fieldset class="mb-40">
-                                    <label for="message" class="sub-title body-2 fw-5">Message</label>
-                                    <textarea name="message" id="message" placeholder="Write message here" required></textarea>
-                                </fieldset>
-
-                                <button type="submit" class="tf-btn">
-                                    <span>Send Us Message</span>
-                                    <i class="icon-arrow-right"></i>
-                                </button>
-
-                            </form>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-            <div class="section-map">
-                <div class="tf-container">
-                    <div class="wg-map tf-spacing-2">
-                        <div class="box-map map map-1 cf-map-embed">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4673.1314043882085!2d31.1176917!3d-17.845830499999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1931bb0cfbef0b51%3A0xc97fa6014b268c08!2sClipflow!5e1!3m2!1sen!2szw!4v1778761669921!5m2!1sen!2szw" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Clipflow office on Google Maps"></iframe>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="next-prev-details tf-spacing-9">
+                <div class="tf-container">
+                    <div class="row rg-50">
+                        <div class="col-sm-6">
+                            <div class="prev-details next-prev-item">
+                                <a href="web-design.html" class="link"><i class="icon-arrow-left"></i> Previous</a>
+                                <h4 class="title"><a href="web-design.html">Web Design, Development &amp; Digital Marketing</a></h4>
+                                <a href="web-design.html" class="image">
+                                    <img src="image/3.jpg" alt="Web Design, Development &amp; Digital Marketing">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="next-details next-prev-item">
+                                <a href="it-consulting.html" class="link"> Next <i class="icon-arrow-right"></i></a>
+                                <h4 class="title"><a href="it-consulting.html">IT Strategy &amp; Consulting</a></h4>
+                                <a href="it-consulting.html" class="image">
+                                    <img src="image/10.jpg" alt="IT Strategy &amp; Consulting">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+            </div>
         </div>
 
         <!-- /.main-content -->
@@ -613,13 +816,13 @@
                         <li class="menu-item">
                             <a href="portfolio-list.html">Portfolio</a>
                         </li>
-                        <li class="menu-item">
+                        <li class="menu-item current-menu-mobile-item">
                             <a href="services.html">Services</a>
                         </li>
                         <li class="menu-item">
                             <a href="team.html">Team</a>
                         </li>
-                        <li class="menu-item current-menu-mobile-item">
+                        <li class="menu-item">
                             <a href="contact.html">Contact Us</a>
                         </li>
                     </ul>
@@ -682,10 +885,11 @@
     <script src="js/Splitetext.js"></script>
     <script src="js/wow.min.js"></script>
     <script src="js/ScrollSmooth.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/odometer.min.js"></script>
     <script src="js/jquery.nice-select.min.js"></script>
     <script src="js/jquery-validate.js"></script>
-    <script src="js/map.min.js"></script>
-    <script src="js/map.js"></script>
 
     <script type="text/javascript" src="js/main.js"></script>
     <!-- /Javascript -->

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 880" width="1280" height="880">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0F1A1E"></stop>
+      <stop offset="1" stop-color="#142125"></stop>
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"></path>
+    </pattern>
+  </defs>
+  <rect width="1280" height="880" fill="url(#g)"></rect>
+  <rect width="1280" height="880" fill="url(#grid)"></rect>
+  <g transform="translate(640 440)">
+    <circle r="51.2" fill="none" stroke="#43BAFF" stroke-width="2"></circle>
+    <circle r="17.919999999999998" fill="#43BAFF"></circle>
+    <line x1="-92.16000000000001" y1="-56.32000000000001" x2="-28.160000000000004" y2="-28.160000000000004" stroke="#43BAFF" stroke-width="2" stroke-linecap="round"></line>
+  </g>
+  <text x="50%" y="603.84" font-family="ui-monospace, &#39;JetBrains Mono&#39;, Menlo, monospace" font-size="23.04" letter-spacing="2" fill="rgba(255,255,255,0.78)" text-anchor="middle" font-weight="500">REPLACE — HERO PHOTO</text>
+  <text x="50%" y="675.52" font-family="ui-monospace, &#39;JetBrains Mono&#39;, Menlo, monospace" font-size="17.92" letter-spacing="1" fill="#7A8B92" text-anchor="middle">Suggested: team at work, server room, or dev workspace · 1280×880</text>
+</svg>

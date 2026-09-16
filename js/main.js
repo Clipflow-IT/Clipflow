@@ -190,45 +190,66 @@
     };
 
     var ajaxContactForm = function () {
+        // The styled subject dropdown is not a real form control, so mirror the chosen option into a hidden input.
+        $(document).on("click", "form .nice-select .option", function () {
+            var $option = $(this);
+            var value = $option.hasClass("option-all") ? "" : $.trim($option.text());
+            $option.closest("form").find('input[name="subject"]').val(value);
+        });
+
+        $(document).on("click", ".flat-alert .close", function (e) {
+            e.preventDefault();
+            $(this).closest(".flat-alert").remove();
+        });
+
         $("#contactform,#commentform").each(function () {
             $(this).validate({
                 submitHandler: function (form) {
                     var $form = $(form),
-                        str = $form.serialize(),
-                        loading = $("<div />", { class: "loading" });
+                        $button = $form.find('[type="submit"]'),
+                        str = $form.serialize() + "&page=" + encodeURIComponent(window.location.pathname);
+
+                    var showResult = function (text, cls) {
+                        $form.find(".flat-alert").remove();
+                        $form.prepend(
+                            $("<div />", {
+                                class: "flat-alert mb-20 " + cls,
+                                role: "status",
+                                text: text,
+                            }).append('<a class="close" href="#" aria-label="Dismiss">&times;</a>')
+                        );
+                    };
 
                     $.ajax({
                         type: "POST",
                         url: $form.attr("action"),
                         data: str,
                         beforeSend: function () {
-                            $form.find(".send-wrap").append(loading);
+                            $button.prop("disabled", true).addClass("is-sending");
                         },
                         success: function (msg) {
-                            var result, cls;
-                            if (msg === "Success") {
-                                result = "Message Sent Successfully To Email Administrator";
-                                cls = "msg-success";
+                            if ($.trim(msg) === "Success") {
+                                showResult("Thank you! Your message has been sent. We'll be in touch shortly.", "msg-success");
+                                form.reset();
+                                $form.find('input[type="hidden"]').val("");
+                                $form.find(".nice-select").each(function () {
+                                    var $first = $(this).find(".option").first();
+                                    $(this).find(".selected").removeClass("selected");
+                                    $first.addClass("selected");
+                                    $(this).find(".current").text($.trim($first.text()));
+                                });
                             } else {
-                                result = "Error sending email.";
-                                cls = "msg-error";
+                                showResult("Sorry, your message could not be sent. Please try again or email sales@clipflow.co.zw.", "msg-error");
                             }
-
-                            $form.prepend(
-                                $("<div />", {
-                                    class: "flat-alert mb-20 " + cls,
-                                    text: result,
-                                }).append(
-                                    $(
-                                        '<a class="close mt-0" href="#"><i class="fa fa-close"></i></a>'
-                                    )
-                                )
-                            );
-
-                            $form.find(":input").not(".submit").val("");
                         },
-                        complete: function (xhr, status, error_thrown) {
-                            $form.find(".loading").remove();
+                        error: function (xhr) {
+                            var text = xhr.status === 422 && xhr.responseText
+                                ? xhr.responseText
+                                : "Sorry, your message could not be sent. Please try again or email sales@clipflow.co.zw.";
+                            showResult(text, "msg-error");
+                        },
+                        complete: function () {
+                            $button.prop("disabled", false).removeClass("is-sending");
                         },
                     });
                 },
